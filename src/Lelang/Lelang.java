@@ -18,11 +18,12 @@ public class Lelang {
 		laporan.laporan(barang);
 		laporan.laporan(petugas);
 		laporan.laporan(masyarakat);
-
-		System.out.print("Pilih barang yang ingin di lelang : ");
+		
+		System.out.println("\n=======Selamat datang di Pelelangan=======");
+		System.out.print("Masukkan Id Barang yang ingin di lelang: ");
 		int index = scanner.nextInt();
 		prosesLelang(barang, petugas, masyarakat, laporan, index);
-		System.out.println("PELELANGAN SELESAI");
+		System.out.println("=======PELELANGAN SELESAI=======");
 
 	}
 
@@ -37,7 +38,6 @@ public class Lelang {
 			int indexPetugas = scanner.nextInt();
 			System.out.println("Petugas Bernama : " + petugas.getNama(indexPetugas - 1));
 
-			System.out.println("Data barang yang akan di lelang ");
 			laporan.detailBarang(barang, idx);
 
 			while (exitProsesLelang) {
@@ -69,6 +69,7 @@ public class Lelang {
 					barang.editStatus(idx, false);
 
 					lelangBerhasil(barang, masyarakat, idx, idxPenawar - 1);
+					break;
 				}
 			}
 
@@ -98,11 +99,12 @@ public class Lelang {
 	}
 
 	public void lelangBerhasil(Barang barang, Masyarakat masyarakat, int idx, int idxMasyarakat) {
-		System.out.println("Barang berhasil di lelang");
-		System.out.println("Id barang : " + barang.getId(idx));
-		System.out.println("Nama barang : " + barang.getNamaBarang(idx));
-		System.out.println("Harga Awal : " + barang.getHargaAwal(idx));
+		System.out.println("\n===Barang berhasil di lelang===");
+		System.out.println("Id barang        : " + barang.getId(idx));
+		System.out.println("Nama barang      : " + barang.getNamaBarang(idx));
+		System.out.println("Harga Awal       : " + barang.getHargaAwal(idx));
 		System.out.println("Di dapatkan oleh : " + masyarakat.getNama(idxMasyarakat));
-		System.out.println("Dengan harga : " + hargaTawar.get(hargaTawar.size() - 1));
+		System.out.println("Dengan harga     : " + hargaTawar.get(hargaTawar.size() - 1));
+		System.out.println("================================");
 	}
 }
